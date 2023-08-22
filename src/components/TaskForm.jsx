@@ -7,11 +7,12 @@ const TaskForm = () => {
     const crearTask= (e)=>{  
       e.preventDefault()
       const {target} = e
-      console.log(target.texto.value.length)
-      if(target.texto.value.length <= 0){
+      console.log(target.texto.value.trim())
+      const texto = target.texto.value.trim()
+      if(texto <= 0){
         alert("Debe escribir un texto valido para crear una tarea")
       }else{
-        dispatch(crear(target.texto.value))
+        dispatch(crear(texto))
       target.texto.value = ""
       }
       
