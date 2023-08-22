@@ -20,12 +20,19 @@ const Task = (props) => {
               id={props.id}
               onClick={()=>{
                   importantee(props.id)
-              }}>
+              }}
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center"
+              }}
+              >
          <p>{props.importante && <GoAlert style={{color: "red", fontSize: "20px"}} />}  {props.contenido}</p>
          
          {!props.terminada && <AiFillDelete 
             style={{
-                fontSize: "2.3em"
+                fontSize: "2.3em",
+                color: "red"
             }}
             onClick={()=>{
              dispatch(deletew(props.id)) 
