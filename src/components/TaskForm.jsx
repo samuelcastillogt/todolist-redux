@@ -7,13 +7,19 @@ const TaskForm = () => {
     const crearTask= (e)=>{  
       e.preventDefault()
       const {target} = e
-      dispatch(crear(target.texto.value))
+      console.log(target.texto.value.length)
+      if(target.texto.value.length <= 0){
+        alert("Debe escribir un texto valido para crear una tarea")
+      }else{
+        dispatch(crear(target.texto.value))
       target.texto.value = ""
+      }
+      
     }
     return (
         <form onSubmit={crearTask} className="taskForm">
         <Input placeholder='Nueva tarea' name="texto"/>
-        <Button variant="contained" type="submit">Agregar</Button>
+        <Button variant="contained" type="submit" style={{margin: "10px"}}>Agregar</Button>
       </form>
     );
 };
